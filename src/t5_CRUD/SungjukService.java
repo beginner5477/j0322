@@ -17,24 +17,17 @@ public class SungjukService {
 		while(true) {
 			System.out.println("\n** 성적 입력처리 **");
 			String name = "";
-			int kor=0, eng=0, mat=0;
 			
 			while(true) {
 				System.out.print("성명 : "); name = sc.next();
 				// 동명2인 처리.....
 				vo = dao.getSungjukSearch(name);
-				if(vo == null) break;
+				if(vo.getIdx() == -1) break;
 				else System.out.println("같은 이름이 존재합니다. 다시 입력하세요");
 			}
-			System.out.print("국어 : "); kor = sc.nextInt();
-			System.out.print("영어 : "); eng = sc.nextInt();
-			System.out.print("수학 : "); mat = sc.nextInt();
-			
-			vo = new SungjukVO();
-			vo.setName(name);
-			vo.setKor(kor);
-			vo.setEng(eng);
-			vo.setMat(mat);
+			System.out.print("국어 : "); vo.setKor(sc.nextInt());
+			System.out.print("영어 : "); vo.setEng(sc.nextInt());
+			System.out.print("수학 : "); vo.setMat(sc.nextInt());
 			
 			int res = dao.setSungjukInput(vo);
 			

@@ -1,5 +1,6 @@
 package t5_CRUD;
 
+//create read update delete
 import java.util.Scanner;
 
 public class SungjukRun {

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SungjukDAO {
 	Connection conn = null;
@@ -87,7 +88,11 @@ public class SungjukDAO {
 				vo.setEng(rs.getInt("eng"));
 				vo.setMat(rs.getInt("mat"));
 			}
-			else vo = null;
+			else 
+			{
+				vo.setIdx(-1);
+				vo.setName(name);
+			}
 		} catch (SQLException e) {
 			System.out.println("SQL 오류 : " + e.getMessage());
 		} finally {
